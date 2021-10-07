@@ -1,38 +1,46 @@
 package utils;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class LocatorHelper {
 
-    static {
-    }
+    @FindBy(how = How.CSS, using = "img[src='https://www.sovtech.co.za/wp-content/uploads/sites/29/2019/07/sovtech_logo-2.png']")
+    private WebElement imageLogo;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"sticky-wrapper\"]/header/div/div[1]/div[1]/a/img")
-    public static WebElement imageLogo;
-
-    @FindBy(css = "a[href*=https://www.sovtech.co.za/contact-us/]")
-    public static WebElement contactUsLink;
+    @FindBy(css = "a[href='https://www.sovtech.co.za/contact-us/']")
+    private WebElement contactUsLink;
 
     @FindBy(name = "your_name")
-    public static WebElement name;
+    private WebElement name;
+
+    @FindBy(id = "hs-form-iframe-0")
+    private WebElement formFrame;
 
     @FindBy(name = "email")
-    public static WebElement email;
+    private WebElement email;
 
     @FindBy(name = "mobilephone")
-    public static WebElement phoneNumber;
+    private WebElement phoneNumber;
 
     @FindBy(name = "numemployees")
-    public static WebElement numOfEmployee;
+    private WebElement numOfEmployee;
 
     @FindBy(name = "message")
-    public static WebElement message;
+    private WebElement message;
 
-    @FindBy(how = How.CSS, using = "textarea[name^='LEGAL_CONSENT.subscription_type']")
-    public static WebElement checkbox;
+    @FindBy(how = How.CSS, using = "input[id*='LEGAL_CONSENT.subscription_type_']")
+    private WebElement checkbox;
 
-    @FindBy(how = How.CLASS_NAME, using = "input[class^='hs-button primary large']")
-    public static WebElement submitContactUsForm;
+    @FindBy(how = How.CSS, using = "input[type='submit']")
+    private WebElement submitContactUsForm;
 }
